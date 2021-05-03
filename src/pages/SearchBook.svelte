@@ -45,7 +45,7 @@
 </form>
 <div class="text-center mt-4">
   {#if empty}
-    <div>検索結果が見つかりませんでした。</div>
+    <div>検索結果が見つかりませんでした</div>
   {:else}
   <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
     {#each $books as book (book.id)}
