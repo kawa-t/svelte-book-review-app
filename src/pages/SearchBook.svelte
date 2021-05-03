@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import SearchBar from '../components/SearchBar.svelte'
+  import Spinner from '../components/Spinner.svelte'
+  import BookCard from '../components/BookCard.svelte'
   import type { BookItem, Result } from '../repositories/book';
   import RepositoryFactory, { BOOK } from '../repositories/RepositoryFactory'
   const BookRepository = RepositoryFactory[BOOK]
@@ -23,8 +25,7 @@
   }
 </script>
 
-<form>
-<form on:submit|preventDefault={handleSubmit}></form>
+<form on:submit|preventDefault={handleSubmit}>
   <SearchBar bind:value={q} />
 </form>
 
@@ -32,12 +33,16 @@
   {#if empty}
     <div>検索結果が見つかりませんでした。</div>
   {:else}
+  <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
     {#each books as book (book.id)}
-      <div>{book.volumeInfo.title}</div>
-    {/each}
+      <BookCard {book} />
+      {/each}
+  </div>
   {/if}
   {#await promise}
-    <div>loading...</div>
+   <div class="flex justify-center">
+    <Spinner />
+   </div>
     {:catch e}
       <span class="text-red-600 text-sm">
         {e.message}
