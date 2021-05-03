@@ -1,6 +1,12 @@
+## deploy to github pages
+
+1
+
 ```
 yarn add --dev gh-pages
 ```
+
+2
 
 ```package.json
   "scripts": {
@@ -8,9 +14,13 @@ yarn add --dev gh-pages
   },
 ```
 
+3
+
 ```
 yarn deploy
 ```
+
+4
 
 ```dist/index.html
     <link
