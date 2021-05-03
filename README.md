@@ -14,18 +14,16 @@ yarn add --dev gh-pages
   },
 ```
 
-3
+3 public/index.html
 
-```
-yarn deploy
+```html
+<link href="https://{ユーザー名}.github.io/{リポジトリ名}/favicon.png" />
 ```
 
 4
 
-```dist/index.html
-    <link
-      href="https://{ユーザー名}.github.io/{リポジトリ名}/favicon.png"
-    />
+```
+yarn deploy
 ```
 
 _Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)_
